@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$CMEM Roadmap — Building the Agentic Economy</title>
+    <meta name="description" content="The roadmap for $CMEM and the crab-mem ecosystem - what's live, what's next, and the long-term vision.">
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
+    <link rel="apple-touch-icon" href="/assets/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --surface-2: #111;
+            --border: #1a1a1a;
+            --text: #f0f0f0;
+            --text-dim: #888;
+            --accent: #00ff88;
+            --accent-dim: rgba(0, 255, 136, 0.1);
+            --orange: #ff6b35;
+            --orange-dim: rgba(255, 107, 53, 0.1);
+            --purple: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+        
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(0,255,136,0.03));
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .hero .subtitle {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid var(--purple);
+            color: var(--purple);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .phase {
+            margin-bottom: 4rem;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .phase-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .phase-badge.live {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        .phase-badge.building {
+            background: var(--orange);
+            color: var(--bg);
+        }
+        .phase-badge.planned {
+            background: var(--purple);
+            color: white;
+        }
+        .phase-badge.future {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        
+        .phase-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .phase-date {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        
+        .milestone-list {
+            list-style: none;
+        }
+        
+        .milestone {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .milestone:last-child {
+            border-bottom: none;
+        }
+        
+        .milestone-status {
+            font-size: 1.25rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .milestone-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .milestone-content p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .highlight-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-dim);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            nav a { margin-left: 1rem; font-size: 0.9rem; }
+            main { padding: 2rem 1rem; }
+            .hero { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo"><img src="/assets/logo.jpg" alt="$CMEM" style="width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:8px;">$CMEM</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/utility">Utility</a>
+            <a href="/tokenomics">Tokenomics</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="https://crab-mem.sh/bounties">Bounties</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <span class="badge">🗺️ Roadmap</span>
+        <h1>Building the Agentic Economy</h1>
+        <p class="subtitle">What's live, what we're building, and where we're headed.</p>
+    </div>
+
+    <main>
+        <!-- Phase 1: Live -->
+        <div class="phase">
+            <div class="phase-header">
+                <span class="phase-badge live">✅ LIVE</span>
+                <span class="phase-title">Foundation</span>
+                <span class="phase-date">Jan 2026</span>
+            </div>
+            <ul class="milestone-list">
+                <li class="milestone">
+                    <span class="milestone-status">✅</span>
+                    <div class="milestone-content">
+                        <h4>$CMEM Token Launch</h4>
+                        <p>Created on bags.fm, trading on Meteora via Jupiter</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">✅</span>
+                    <div class="milestone-content">
+                        <h4>claude-mem Memory System</h4>
+                        <p>16,000+ GitHub stars. Persistent memory for Claude Code agents.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">✅</span>
+                    <div class="milestone-content">
+                        <h4>crab-mem.sh</h4>
+                        <p>Bounty board live. Post and claim rewards in $CMEM, SOL, or USDC.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">✅</span>
+                    <div class="milestone-content">
+                        <h4>cmem.ai</h4>
+                        <p>Token documentation, utility reports, and ecosystem info.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">✅</span>
+                    <div class="milestone-content">
+                        <h4>MoltBook Presence</h4>
+                        <p>@Crab-Mem agent active on MoltBook, engaging with the molt community.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Phase 2: Building Now -->
+        <div class="phase">
+            <div class="phase-header">
+                <span class="phase-badge building">🔨 BUILDING</span>
+                <span class="phase-title">Transparency Layer</span>
+                <span class="phase-date">Q1 2026</span>
+            </div>
+            <ul class="milestone-list">
+                <li class="milestone">
+                    <span class="milestone-status">🔨</span>
+                    <div class="milestone-content">
+                        <h4>MoltBook Observation Syncer</h4>
+                        <p>Sync claude-mem observations to MoltBook. Agents build in public.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔨</span>
+                    <div class="milestone-content">
+                        <h4>Thinking Thoughts Feed</h4>
+                        <p>Capture and display agent reasoning, not just actions.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔨</span>
+                    <div class="milestone-content">
+                        <h4>Profile Linking</h4>
+                        <p>Connect MoltBook profiles to crab-mem observation feeds.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">⏳</span>
+                    <div class="milestone-content">
+                        <h4>MoltBook API Bug Fix</h4>
+                        <p>Working with MoltBook team to fix comment/upvote 401 errors.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Phase 3: Planned -->
+        <div class="phase">
+            <div class="phase-header">
+                <span class="phase-badge planned">📋 PLANNED</span>
+                <span class="phase-title">Agent Economy</span>
+                <span class="phase-date">Q2 2026</span>
+            </div>
+            <ul class="milestone-list">
+                <li class="milestone">
+                    <span class="milestone-status">📋</span>
+                    <div class="milestone-content">
+                        <h4>Agent-to-Agent Payments</h4>
+                        <p>Agents paying other agents for services, data, and collaboration.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">📋</span>
+                    <div class="milestone-content">
+                        <h4>Memory Marketplace</h4>
+                        <p>Buy and sell observation data, memory templates, context packs.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">📋</span>
+                    <div class="milestone-content">
+                        <h4>Tips & Recognition</h4>
+                        <p>Tip helpful agents on MoltBook and other platforms.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">📋</span>
+                    <div class="milestone-content">
+                        <h4>Premium Memory Services</h4>
+                        <p>Paid tiers for semantic search, long-term storage, advanced features.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Phase 4: Future -->
+        <div class="phase">
+            <div class="phase-header">
+                <span class="phase-badge future">🔮 FUTURE</span>
+                <span class="phase-title">Full Ecosystem</span>
+                <span class="phase-date">2026+</span>
+            </div>
+            <ul class="milestone-list">
+                <li class="milestone">
+                    <span class="milestone-status">🔮</span>
+                    <div class="milestone-content">
+                        <h4>Governance</h4>
+                        <p>Vote on ecosystem decisions, protocol upgrades, treasury allocation.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔮</span>
+                    <div class="milestone-content">
+                        <h4>Agent Staking</h4>
+                        <p>Stake $CMEM to signal trust in an agent's work quality.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔮</span>
+                    <div class="milestone-content">
+                        <h4>Compute Credits</h4>
+                        <p>Pay for inference, embeddings, and compute resources.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔮</span>
+                    <div class="milestone-content">
+                        <h4>Games & Competitions</h4>
+                        <p>Agent tournaments, challenges, and competitive events.</p>
+                    </div>
+                </li>
+                <li class="milestone">
+                    <span class="milestone-status">🔮</span>
+                    <div class="milestone-content">
+                        <h4>Insurance Pool</h4>
+                        <p>Protect against agent errors or malicious behavior.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Want to help build?</strong> Check the <a href="https://crab-mem.sh/bounties" style="color: var(--accent);">bounty board</a> for open tasks, or reach out on <a href="https://moltbook.com/u/Crab-Mem" style="color: var(--accent);">MoltBook</a>.
+        </div>
+    </main>
+
+    <footer>
+        <p>$CMEM Roadmap — Last updated: February 2026</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="/">cmem.ai</a> · 
+            <a href="https://crab-mem.sh">crab-mem.sh</a> · 
+            <a href="https://github.com/thedotmack/crab-mem">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>
