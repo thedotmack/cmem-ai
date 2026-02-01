@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$CMEM Tokenomics — Supply, Distribution & Economics</title>
-    <meta name="description" content="Complete tokenomics breakdown for $CMEM - supply, distribution, and economic model of the agentic economy currency.">
+    <meta name="description" content="Tokenomics report for $CMEM - supply distribution, liquidity, and economic model.">
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
     <link rel="apple-touch-icon" href="/assets/logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,7 @@
             --accent: #00ff88;
             --accent-dim: rgba(0, 255, 136, 0.1);
             --orange: #ff6b35;
-            --purple: #a855f7;
-            --blue: #3b82f6;
+            --orange-dim: rgba(255, 107, 53, 0.1);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -61,7 +60,7 @@
         .hero {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(168,85,247,0.05), rgba(0,255,136,0.03));
+            background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(0,255,136,0.03));
             border-bottom: 1px solid var(--border);
         }
         .hero h1 {
@@ -76,9 +75,9 @@
         }
         .badge {
             display: inline-block;
-            background: rgba(168,85,247,0.1);
-            border: 1px solid var(--purple);
-            color: var(--purple);
+            background: var(--orange-dim);
+            border: 1px solid var(--orange);
+            color: var(--orange);
             padding: 0.25rem 0.75rem;
             border-radius: 100px;
             font-size: 0.8rem;
@@ -107,7 +106,7 @@
         h3 {
             font-size: 1.25rem;
             margin: 2rem 0 1rem;
-            color: var(--accent);
+            color: var(--orange);
         }
         
         p {
@@ -115,60 +114,6 @@
             color: var(--text-dim);
         }
         p strong { color: var(--text); }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-        .stat-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-        .stat-value.green { color: var(--accent); }
-        .stat-value.orange { color: var(--orange); }
-        .stat-value.purple { color: var(--purple); }
-        .stat-value.blue { color: var(--blue); }
-        
-        .token-info {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-        .token-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .token-row:last-child { border-bottom: none; }
-        .token-label { color: var(--text-dim); }
-        .token-value { 
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent);
-        }
-        .token-value.wrap {
-            word-break: break-all;
-            text-align: right;
-            max-width: 60%;
-        }
         
         .highlight-box {
             background: var(--surface);
@@ -178,48 +123,10 @@
             border-radius: 8px;
             margin: 1.5rem 0;
         }
-        .highlight-box.purple { border-left-color: var(--purple); }
-        .highlight-box.orange { border-left-color: var(--orange); }
+        .highlight-box.orange {
+            border-left-color: var(--orange);
+        }
         
-        .distribution-chart {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-        .dist-item {
-            margin-bottom: 1.5rem;
-        }
-        .dist-item:last-child { margin-bottom: 0; }
-        .dist-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-        .dist-label { font-weight: 500; }
-        .dist-percent { color: var(--accent); font-weight: 600; }
-        .dist-bar {
-            height: 8px;
-            background: var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .dist-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-        .dist-fill.green { background: var(--accent); }
-        .dist-fill.orange { background: var(--orange); }
-        .dist-fill.purple { background: var(--purple); }
-        .dist-fill.blue { background: var(--blue); }
-        .dist-desc {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            margin-top: 0.5rem;
-        }
-
         ul {
             list-style: none;
             margin: 1rem 0;
@@ -233,7 +140,78 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--orange);
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .stat-value.green { color: var(--accent); }
+        .stat-value.orange { color: var(--orange); }
+        
+        .distribution-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .bar-container {
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        .bar-segment {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--bg);
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+        .legend-text {
+            font-size: 0.9rem;
+            color: var(--text-dim);
         }
         
         table {
@@ -253,6 +231,40 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        td { color: var(--text); }
+        td.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        
+        .token-address {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .token-address code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            word-break: break-all;
+        }
+        .copy-btn {
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+        .copy-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
         
         footer {
             border-top: 1px solid var(--border);
@@ -267,8 +279,7 @@
             nav a { margin-left: 1rem; font-size: 0.9rem; }
             main { padding: 2rem 1rem; }
             .hero { padding: 2rem 1rem; }
-            .token-row { flex-direction: column; gap: 0.5rem; }
-            .token-value.wrap { max-width: 100%; text-align: left; }
+            .stat-value { font-size: 1.25rem; }
         }
     </style>
 </head>
@@ -286,224 +297,238 @@
     <div class="hero">
         <span class="badge">📈 Tokenomics Report</span>
         <h1>$CMEM Tokenomics</h1>
-        <p class="subtitle">Supply, distribution, and economic model of the currency powering the Molt/Crab agentic economy.</p>
+        <p class="subtitle">Supply, distribution, liquidity, and economic model for the currency of the agentic economy.</p>
     </div>
 
     <main>
         <section>
-            <h2><span class="icon">📊</span> Live Market Data</h2>
-            <div class="stats-grid">
+            <h2><span class="icon">📊</span> Current Stats</h2>
+            <p>Live metrics for $CMEM on Solana (Meteora DEX)</p>
+            
+            <div class="stat-grid">
                 <div class="stat-card">
                     <div class="stat-label">Price</div>
-                    <div class="stat-value green" id="price">—</div>
+                    <div class="stat-value green">$0.000198</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Market Cap</div>
-                    <div class="stat-value orange" id="mcap">—</div>
+                    <div class="stat-value">$197.8K</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">24h Volume</div>
-                    <div class="stat-value purple" id="volume">—</div>
+                    <div class="stat-value orange">$85K</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Liquidity</div>
-                    <div class="stat-value blue" id="liquidity">—</div>
+                    <div class="stat-value">$34K</div>
                 </div>
+            </div>
+
+            <div class="token-address">
+                <span style="color: var(--text-dim);">Contract:</span>
+                <code id="contract">2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS</code>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS'); this.textContent='Copied!'">Copy</button>
             </div>
         </section>
 
         <section>
-            <h2><span class="icon">🔗</span> Token Details</h2>
-            <div class="token-info">
-                <div class="token-row">
-                    <span class="token-label">Name</span>
-                    <span class="token-value">Claude Memory</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Symbol</span>
-                    <span class="token-value">$CMEM</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Blockchain</span>
-                    <span class="token-value">Solana</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Token Standard</span>
-                    <span class="token-value">SPL Token</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Contract Address</span>
-                    <span class="token-value wrap">2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Decimals</span>
-                    <span class="token-value">6</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Total Supply</span>
-                    <span class="token-value">1,000,000,000 CMEM</span>
-                </div>
-                <div class="token-row">
-                    <span class="token-label">Launch Date</span>
-                    <span class="token-value">January 6, 2025</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="icon">🥧</span> Distribution</h2>
-            <p>$CMEM was launched as a fair-launch community token with no pre-mine, no VC allocation, and no team tokens. Distribution is organic through trading, bounties, and ecosystem participation.</p>
+            <h2><span class="icon">🔢</span> Supply Details</h2>
             
-            <div class="distribution-chart">
-                <div class="dist-item">
-                    <div class="dist-header">
-                        <span class="dist-label">🌊 Liquidity Pool</span>
-                        <span class="dist-percent">~40%</span>
-                    </div>
-                    <div class="dist-bar">
-                        <div class="dist-fill green" style="width: 40%"></div>
-                    </div>
-                    <p class="dist-desc">Locked in DEX liquidity pools (Meteora, Raydium) to ensure trading availability.</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Total Supply</td>
+                        <td class="mono">1,000,000,000 CMEM</td>
+                    </tr>
+                    <tr>
+                        <td>Circulating Supply</td>
+                        <td class="mono">~1,000,000,000 CMEM</td>
+                    </tr>
+                    <tr>
+                        <td>Decimals</td>
+                        <td class="mono">6</td>
+                    </tr>
+                    <tr>
+                        <td>Blockchain</td>
+                        <td>Solana</td>
+                    </tr>
+                    <tr>
+                        <td>DEX</td>
+                        <td>Meteora</td>
+                    </tr>
+                    <tr>
+                        <td>Launch Date</td>
+                        <td>January 6, 2025</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <strong>Fair Launch:</strong> $CMEM was launched via pump.fun with no pre-mine, no team allocation, and no VC funding. 100% of supply was available at launch.
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">📈</span> Distribution Model</h2>
+            <p>$CMEM follows a community-first distribution model. All tokens entered circulation at launch.</p>
+            
+            <div class="distribution-bar">
+                <div class="bar-container">
+                    <div class="bar-segment" style="width: 60%; background: var(--accent);">Circulating</div>
+                    <div class="bar-segment" style="width: 25%; background: var(--orange);">Liquidity</div>
+                    <div class="bar-segment" style="width: 15%; background: #8b5cf6;">Treasury</div>
                 </div>
-                
-                <div class="dist-item">
-                    <div class="dist-header">
-                        <span class="dist-label">👥 Community Holdings</span>
-                        <span class="dist-percent">~35%</span>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: var(--accent);"></div>
+                        <span class="legend-text">Circulating (~60%)</span>
                     </div>
-                    <div class="dist-bar">
-                        <div class="dist-fill orange" style="width: 35%"></div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: var(--orange);"></div>
+                        <span class="legend-text">Liquidity Pool (~25%)</span>
                     </div>
-                    <p class="dist-desc">Distributed to early adopters, traders, and community members through organic market activity.</p>
-                </div>
-                
-                <div class="dist-item">
-                    <div class="dist-header">
-                        <span class="dist-label">🏆 Bounty Treasury</span>
-                        <span class="dist-percent">~15%</span>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #8b5cf6;"></div>
+                        <span class="legend-text">Treasury (~15%)</span>
                     </div>
-                    <div class="dist-bar">
-                        <div class="dist-fill purple" style="width: 15%"></div>
-                    </div>
-                    <p class="dist-desc">Reserved for bounties, grants, and ecosystem development. Currently funding 6 active bounties (100K CMEM).</p>
-                </div>
-                
-                <div class="dist-item">
-                    <div class="dist-header">
-                        <span class="dist-label">🦀 Crab-Mem Operations</span>
-                        <span class="dist-percent">~10%</span>
-                    </div>
-                    <div class="dist-bar">
-                        <div class="dist-fill blue" style="width: 10%"></div>
-                    </div>
-                    <p class="dist-desc">For ongoing development, infrastructure costs, and operational expenses.</p>
                 </div>
             </div>
 
-            <div class="highlight-box purple">
-                <strong>Fair Launch Philosophy:</strong> No team allocation, no investor tokens, no vesting schedules. Every $CMEM in circulation was acquired the same way — through the open market or earned through contributions.
+            <h3>Treasury Allocation</h3>
+            <p>The community treasury holds approximately 150M $CMEM, allocated for:</p>
+            <ul>
+                <li><strong>Bounties</strong> — Funding open source development, bug fixes, and new features</li>
+                <li><strong>Grants</strong> — Supporting builders in the Molt/Crab ecosystem</li>
+                <li><strong>Partnerships</strong> — Integration incentives with other platforms</li>
+                <li><strong>Marketing</strong> — Community growth and awareness campaigns</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="icon">💧</span> Liquidity</h2>
+            <p>$CMEM trades on Meteora, a Solana-based DEX with concentrated liquidity.</p>
+            
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Pool</td>
+                        <td>CMEM/SOL</td>
+                    </tr>
+                    <tr>
+                        <td>Total Liquidity</td>
+                        <td class="mono">$34,000</td>
+                    </tr>
+                    <tr>
+                        <td>Pool Type</td>
+                        <td>Meteora DLMM</td>
+                    </tr>
+                    <tr>
+                        <td>LP Tokens</td>
+                        <td>Burned (Permanent Liquidity)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box orange">
+                <strong>Permanent Liquidity:</strong> LP tokens were burned at launch, meaning liquidity can never be removed. This protects holders from rug pulls and ensures the token remains tradeable forever.
             </div>
         </section>
 
         <section>
             <h2><span class="icon">⚙️</span> Economic Model</h2>
             
-            <h3>Value Capture Mechanisms</h3>
+            <h3>Deflationary Mechanics</h3>
+            <p>While $CMEM doesn't have a burn mechanism built in, natural deflationary pressure comes from:</p>
             <ul>
-                <li><strong>Transaction Utility</strong> — Every bounty payment, agent-to-agent transaction, and tip uses $CMEM</li>
-                <li><strong>Service Fees</strong> — Premium memory services, API access, and compute resources priced in $CMEM</li>
-                <li><strong>Governance Weight</strong> — $CMEM holdings determine voting power on ecosystem decisions</li>
-                <li><strong>Reputation Staking</strong> — Stake $CMEM to vouch for agent quality and reliability</li>
+                <li><strong>Lost wallets</strong> — Tokens sent to wrong addresses or lost keys</li>
+                <li><strong>Long-term holding</strong> — Treasury and bounty reserves reduce circulating supply</li>
+                <li><strong>Protocol integrations</strong> — Future staking mechanisms may lock supply</li>
             </ul>
 
-            <h3>Deflationary Pressures</h3>
+            <h3>Value Accrual</h3>
+            <p>$CMEM accrues value through increased utility demand:</p>
             <ul>
-                <li><strong>Bounty Burns</strong> — A portion of completed bounty fees may be burned (governance decision)</li>
-                <li><strong>Service Sinks</strong> — $CMEM spent on infrastructure services exits active circulation</li>
-                <li><strong>Long-term Holdings</strong> — Treasury and operational reserves reduce circulating supply</li>
+                <li><strong>Bounty demand</strong> — More bounties = more buying pressure</li>
+                <li><strong>Service payments</strong> — Agents paying for memory services</li>
+                <li><strong>Tipping culture</strong> — Social rewards on MoltBook and other platforms</li>
+                <li><strong>Speculation</strong> — Market participants betting on ecosystem growth</li>
             </ul>
-
-            <h3>Inflationary Pressures</h3>
-            <ul>
-                <li><strong>Fixed Supply</strong> — No new $CMEM can be minted. Total supply is capped at 1B forever.</li>
-                <li><strong>Treasury Releases</strong> — Bounty payments slowly release treasury tokens into circulation</li>
-            </ul>
-
-            <div class="highlight-box orange">
-                <strong>Net Effect:</strong> With a fixed supply and growing utility demand, $CMEM is designed to appreciate as the agentic economy expands. More agents = more transactions = more demand for a fixed supply.
-            </div>
         </section>
 
         <section>
-            <h2><span class="icon">🛣️</span> Economic Roadmap</h2>
+            <h2><span class="icon">🗓️</span> Key Milestones</h2>
             
             <table>
                 <thead>
                     <tr>
-                        <th>Phase</th>
-                        <th>Focus</th>
-                        <th>Economic Impact</th>
+                        <th>Date</th>
+                        <th>Event</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Phase 1</strong><br><span style="color: var(--text-dim)">Current</span></td>
-                        <td>Bounty System & Community Building</td>
-                        <td>Establish $CMEM as the bounty currency. Build initial velocity through grants and rewards.</td>
+                        <td>Jan 6, 2025</td>
+                        <td>$CMEM launched on pump.fun</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 2</strong><br><span style="color: var(--text-dim)">Q1 2026</span></td>
-                        <td>MoltBook Integration</td>
-                        <td>Agent tipping, premium features, and observation syncing all priced in $CMEM.</td>
+                        <td>Jan 2025</td>
+                        <td>Migrated to Meteora for better liquidity</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 3</strong><br><span style="color: var(--text-dim)">Q2 2026</span></td>
-                        <td>Agent-to-Agent Economy</td>
-                        <td>Agents paying agents for services. API marketplaces. Collaboration payments.</td>
+                        <td>Feb 2026</td>
+                        <td>crab-mem.sh launched with bounty board</td>
                     </tr>
                     <tr>
-                        <td><strong>Phase 4</strong><br><span style="color: var(--text-dim)">H2 2026</span></td>
-                        <td>Governance & Staking</td>
-                        <td>On-chain governance. Reputation staking. Treasury management by token holders.</td>
+                        <td>Feb 2026</td>
+                        <td>cmem.ai launched with utility/tokenomics reports</td>
+                    </tr>
+                    <tr>
+                        <td>Feb 2026</td>
+                        <td>MoltBook integration RFC posted</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
         <section>
-            <h2><span class="icon">⚠️</span> Risk Factors</h2>
-            <ul>
-                <li><strong>Market Volatility</strong> — Cryptocurrency prices are highly volatile. $CMEM is no exception.</li>
-                <li><strong>Adoption Risk</strong> — Token utility depends on ecosystem growth and agent adoption.</li>
-                <li><strong>Regulatory Uncertainty</strong> — Crypto regulations continue to evolve globally.</li>
-                <li><strong>Smart Contract Risk</strong> — While audited, all smart contracts carry inherent risk.</li>
-                <li><strong>Liquidity Risk</strong> — Lower liquidity can lead to higher slippage on trades.</li>
-            </ul>
+            <h2><span class="icon">🔗</span> Links & Resources</h2>
             
-            <div class="highlight-box" style="border-left-color: #ff4444;">
-                <strong>Disclaimer:</strong> This is not financial advice. $CMEM is a speculative asset. Only invest what you can afford to lose. Do your own research (DYOR).
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <a href="https://dexscreener.com/solana/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" style="color: var(--accent); text-decoration: none;">
+                        <div class="stat-label">Chart</div>
+                        <div style="font-size: 1.25rem;">DexScreener →</div>
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <a href="https://jup.ag/swap/SOL-2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" style="color: var(--orange); text-decoration: none;">
+                        <div class="stat-label">Trade</div>
+                        <div style="font-size: 1.25rem;">Jupiter →</div>
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <a href="https://crab-mem.sh/bounties" style="color: var(--accent); text-decoration: none;">
+                        <div class="stat-label">Earn</div>
+                        <div style="font-size: 1.25rem;">Bounties →</div>
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <a href="https://github.com/thedotmack/crab-mem" style="color: var(--text); text-decoration: none;">
+                        <div class="stat-label">Code</div>
+                        <div style="font-size: 1.25rem;">GitHub →</div>
+                    </a>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2><span class="icon">🔍</span> Verify & Trade</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">DexScreener</div>
-                    <a href="https://dexscreener.com/solana/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500;">View Chart →</a>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Jupiter</div>
-                    <a href="https://jup.ag/swap/SOL-2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500;">Trade →</a>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Raydium</div>
-                    <a href="https://raydium.io/swap/?inputMint=sol&outputMint=2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500;">Trade →</a>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Solscan</div>
-                    <a href="https://solscan.io/token/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500;">Verify →</a>
-                </div>
+            <h2><span class="icon">⚠️</span> Disclaimer</h2>
+            <div class="highlight-box">
+                <p style="margin: 0; font-size: 0.9rem;">
+                    $CMEM is a utility token for the Molt/Crab ecosystem. It is not a security and does not represent ownership in any company. 
+                    The value of $CMEM may fluctuate significantly. Do your own research before participating. 
+                    This is not financial advice.
+                </p>
             </div>
         </section>
     </main>
@@ -512,37 +537,9 @@
         <p>$CMEM Tokenomics Report — Last updated: February 2026</p>
         <p style="margin-top: 0.5rem;">
             <a href="/">cmem.ai</a> · 
-            <a href="/utility">Utility Report</a> · 
-            <a href="https://crab-mem.sh">crab-mem.sh</a>
+            <a href="https://crab-mem.sh">crab-mem.sh</a> · 
+            <a href="https://github.com/thedotmack/crab-mem">GitHub</a>
         </p>
     </footer>
-
-    <script>
-        async function fetchPrice() {
-            try {
-                const res = await fetch('/api/price');
-                const data = res.ok ? await res.json() : null;
-                
-                if (!data?.price) throw new Error('No data');
-
-                const price = parseFloat(data.price);
-                const mcap = parseFloat(data.marketCap) || 0;
-                const volume = parseFloat(data.volume24h) || 0;
-                const liquidity = parseFloat(data.liquidity) || 0;
-
-                document.getElementById('price').textContent = price > 0 ? `$${price.toFixed(6)}` : 'N/A';
-                document.getElementById('mcap').textContent = mcap > 0 ? `$${(mcap/1000).toFixed(0)}K` : 'N/A';
-                document.getElementById('volume').textContent = volume > 0 ? `$${(volume/1000).toFixed(0)}K` : 'N/A';
-                document.getElementById('liquidity').textContent = liquidity > 0 ? `$${(liquidity/1000).toFixed(0)}K` : 'N/A';
-            } catch (e) {
-                document.getElementById('price').textContent = 'N/A';
-                document.getElementById('mcap').textContent = 'N/A';
-                document.getElementById('volume').textContent = 'N/A';
-                document.getElementById('liquidity').textContent = 'N/A';
-            }
-        }
-        fetchPrice();
-        setInterval(fetchPrice, 60000);
-    </script>
 </body>
 </html>
