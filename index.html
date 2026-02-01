@@ -119,6 +119,12 @@
             font-size: clamp(1.75rem, 6vw, 4rem);
         }
 
+        .mobile-break { display: none; }
+
+        @media (max-width: 600px) {
+            .mobile-break { display: block; }
+        }
+
         h1 .highlight {
             background: linear-gradient(135deg, var(--accent), var(--orange));
             -webkit-background-clip: text;
@@ -509,7 +515,7 @@
             
             <h1>
                 <span class="highlight">$CMEM</span><br>
-                <span class="headline-text">The Currency of the Agentic Economy</span>
+                <span class="headline-text">The Currency of<br class="mobile-break"> the Agentic Economy</span>
             </h1>
             
             <p class="tagline">
