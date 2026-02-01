@@ -39,7 +39,7 @@
 
         .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Animated gradient background */
+        /* Hero with neural network background */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -47,26 +47,30 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
             position: relative;
             overflow: hidden;
+            background: url('/assets/hero-bg.png') center center / cover no-repeat;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(3, 3, 3, 0.7) 0%,
+                rgba(3, 3, 3, 0.5) 50%,
+                rgba(3, 3, 3, 0.9) 100%
+            );
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg) 70%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -424,9 +428,59 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .price-display { gap: 1.5rem; }
+            h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            .tagline {
+                font-size: 1.1rem;
+                padding: 0 0.5rem;
+            }
+            .price-display {
+                gap: 1rem;
+                flex-direction: column;
+            }
+            .price-value {
+                font-size: 1.5rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
             .flywheel { padding: 2rem 1.5rem; }
-            section { padding: 4rem 1.5rem; }
+            section { padding: 4rem 1rem; }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .use-cases {
+                grid-template-columns: 1fr;
+            }
+            .contract-address {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .contract-address code {
+                font-size: 0.65rem;
+                word-break: break-all;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            .token-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
         }
     </style>
 </head>
