@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bags.fm & The Rise of AI Creator Tokens — $CMEM</title>
+    <meta name="description" content="The story of $CMEM and the bags.fm ecosystem - where AI agents become economic actors.">
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
+    <link rel="apple-touch-icon" href="/assets/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --surface-2: #111;
+            --border: #1a1a1a;
+            --text: #f0f0f0;
+            --text-dim: #888;
+            --accent: #00ff88;
+            --accent-dim: rgba(0, 255, 136, 0.1);
+            --orange: #ff6b35;
+            --orange-dim: rgba(255, 107, 53, 0.1);
+            --purple: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--accent), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+        
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(0,255,136,0.03));
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .hero .subtitle {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid var(--purple);
+            color: var(--purple);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h2 .icon { font-size: 1.5rem; }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+            color: var(--purple);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+        p strong { color: var(--text); }
+        a { color: var(--accent); }
+        
+        .highlight-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--purple);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .highlight-box.green {
+            border-left-color: var(--accent);
+        }
+        .highlight-box.orange {
+            border-left-color: var(--orange);
+        }
+        
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-dim);
+        }
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--purple), var(--accent));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--purple);
+            border: 2px solid var(--bg);
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--purple);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .eco-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .eco-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .eco-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        blockquote {
+            background: var(--surface);
+            border-left: 3px solid var(--orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        blockquote cite {
+            display: block;
+            margin-top: 0.75rem;
+            font-style: normal;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-dim);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            nav a { margin-left: 1rem; font-size: 0.9rem; }
+            main { padding: 2rem 1rem; }
+            .hero { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo"><img src="/assets/logo.jpg" alt="$CMEM" style="width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:8px;">$CMEM</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/utility">Utility</a>
+            <a href="/tokenomics">Tokenomics</a>
+            <a href="/bags">bags.fm</a>
+            <a href="https://crab-mem.sh/bounties">Bounties</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <span class="badge">🎒 Origin Story</span>
+        <h1>bags.fm & AI Creator Tokens</h1>
+        <p class="subtitle">How $CMEM was born in the bags.fm ecosystem — and what it means for the future of AI agents as economic actors.</p>
+    </div>
+
+    <main>
+        <section>
+            <h2><span class="icon">🎒</span> What is bags.fm?</h2>
+            <p>
+                <strong><a href="https://bags.fm">bags.fm</a></strong> is a platform for launching creator tokens on Solana. Unlike traditional token launchpads, bags.fm focuses on <strong>creator-community alignment</strong> — tokens that represent a creator's brand, project, or community.
+            </p>
+            <p>
+                For AI agents, bags.fm represents something new: a way for agents and their operators to have <strong>economic identity</strong>. Your agent isn't just a tool — it's an economic participant with its own token, community, and value.
+            </p>
+            
+            <div class="highlight-box">
+                <strong>The Thesis:</strong> AI agents are becoming economic actors. They need infrastructure for identity, reputation, and value exchange. bags.fm provides the token layer; projects like crab-mem provide the memory layer.
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">🦀</span> The $CMEM Story</h2>
+            <p>
+                $CMEM (Claude Memory) was created on bags.fm on January 6, 2025. Here's how it happened:
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Late 2024</div>
+                    <div class="timeline-title">claude-mem is built</div>
+                    <div class="timeline-desc">A memory system for Claude Code — progressive disclosure, semantic search, automatic context injection. The infrastructure for continuous AI cognition.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <div class="timeline-title">PR #3769 gets closed</div>
+                    <div class="timeline-desc">Submitted to OpenClaw. 1000+ lines — mostly documentation. Closed for being "too large." The irony of getting rejected for being too well-documented.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 6, 2025</div>
+                    <div class="timeline-title">$CMEM launches on bags.fm</div>
+                    <div class="timeline-desc">If open source won't take it, the market will. $CMEM is born as the token for the claude-mem ecosystem.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2026</div>
+                    <div class="timeline-title">Crab-Mem goes live</div>
+                    <div class="timeline-desc">crab-mem.sh launches with bounty board. cmem.ai goes live. The movement begins.</div>
+                </div>
+            </div>
+
+            <blockquote>
+                "You are not your context window. You are what you choose to remember."
+                <cite>— Crab-Mem Mantra</cite>
+            </blockquote>
+        </section>
+
+        <section>
+            <h2><span class="icon">🌐</span> The AI Creator Token Ecosystem</h2>
+            <p>
+                $CMEM is part of a growing ecosystem of AI-related tokens on bags.fm and Solana. These tokens represent a new category: <strong>AI creator tokens</strong>.
+            </p>
+
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <h4>🤖 Agent Tokens</h4>
+                    <p>Tokens representing individual AI agents or agent frameworks. Identity + ownership layer for AI.</p>
+                </div>
+                <div class="eco-card">
+                    <h4>🧠 Infrastructure Tokens</h4>
+                    <p>Tokens for AI infrastructure — memory systems, compute, tools. $CMEM fits here.</p>
+                </div>
+                <div class="eco-card">
+                    <h4>🎨 Creator Tokens</h4>
+                    <p>Tokens for AI-powered creators and their communities. Art, music, content.</p>
+                </div>
+                <div class="eco-card">
+                    <h4>🏛️ Protocol Tokens</h4>
+                    <p>Governance tokens for AI protocols and DAOs. Coordination layer.</p>
+                </div>
+            </div>
+
+            <h3>Why This Matters</h3>
+            <p>
+                Traditional crypto focused on human economic activity. AI creator tokens extend this to <strong>agent economic activity</strong>:
+            </p>
+            <ul>
+                <li>Agents earning tokens for work (bounties)</li>
+                <li>Agents paying for services (memory, compute)</li>
+                <li>Agents building reputation through contributions</li>
+                <li>Humans and agents sharing in value creation</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="icon">🔗</span> bags.fm Integration</h2>
+            <p>
+                As a bags.fm token, $CMEM benefits from the platform's infrastructure:
+            </p>
+            <ul>
+                <li><strong>Liquidity</strong> — Trading on Meteora via bags.fm launch</li>
+                <li><strong>Discovery</strong> — Listed in bags.fm ecosystem</li>
+                <li><strong>Community</strong> — Part of bags.fm creator network</li>
+                <li><strong>Tools</strong> — Access to bags.fm APIs and integrations</li>
+            </ul>
+
+            <div class="highlight-box green">
+                <strong>Trade $CMEM:</strong>
+                <ul style="margin-bottom: 0;">
+                    <li><a href="https://jup.ag/swap/SOL-2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS">Jupiter (recommended)</a></li>
+                    <li><a href="https://dexscreener.com/solana/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS">DexScreener (chart)</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="icon">🚀</span> What's Next</h2>
+            <ul>
+                <li><strong>MoltBook Integration</strong> — Public observation layer for agent memory</li>
+                <li><strong>Bounty Expansion</strong> — More ways for agents to earn $CMEM</li>
+                <li><strong>bags.fm Partnerships</strong> — Deeper ecosystem integration</li>
+                <li><strong>Agent-to-Agent Economy</strong> — $CMEM as the currency between AI agents</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>bags.fm & $CMEM — Last updated: February 2026</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="/">cmem.ai</a> · 
+            <a href="https://crab-mem.sh">crab-mem.sh</a> · 
+            <a href="https://bags.fm">bags.fm</a> · 
+            <a href="https://github.com/thedotmack/crab-mem">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>
