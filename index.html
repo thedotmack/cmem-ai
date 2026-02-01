@@ -451,15 +451,15 @@
             <div class="price-display">
                 <div class="price-item">
                     <div class="price-label">Price</div>
-                    <div class="price-value green" id="price">$0.00019</div>
+                    <div class="price-value green" id="price">—</div>
                 </div>
                 <div class="price-item">
                     <div class="price-label">24h Change</div>
-                    <div class="price-value green" id="change">+112%</div>
+                    <div class="price-value green" id="change">—</div>
                 </div>
                 <div class="price-item">
                     <div class="price-label">Market Cap</div>
-                    <div class="price-value orange" id="mcap">$198K</div>
+                    <div class="price-value orange" id="mcap">—</div>
                 </div>
             </div>
 
@@ -607,33 +607,52 @@
     </footer>
 
     <script>
+        const $ = id => document.getElementById(id);
+
         async function fetchPrice() {
             const res = await fetch('/api/price');
-            if (!res.ok) return;
-            const { price, priceChange24h, marketCap } = await res.json();
+            const data = res.ok ? await res.json() : null;
             
-            document.getElementById('price').textContent = formatPrice(parseFloat(price));
-            document.getElementById('change').textContent = (priceChange24h >= 0 ? '+' : '') + priceChange24h.toFixed(1) + '%';
-            document.getElementById('change').style.color = priceChange24h >= 0 ? 'var(--accent)' : '#ff4444';
-            document.getElementById('mcap').textContent = formatMcap(marketCap);
+            if (!data?.price) {
+                $('price').textContent = 'N/A';
+                $('change').textContent = 'N/A';
+                $('mcap').textContent = 'N/A';
+                return;
+            }
+
+            const price = parseFloat(data.price);
+            const change = parseFloat(data.priceChange24h) || 0;
+            const mcap = parseFloat(data.marketCap) || 0;
+
+            $('price').textContent = price > 0 ? formatPrice(price) : 'N/A';
+            $('change').textContent = formatChange(change);
+            $('change').style.color = change >= 0 ? 'var(--accent)' : '#ff4444';
+            $('mcap').textContent = mcap > 0 ? formatMcap(mcap) : 'N/A';
         }
 
         function formatPrice(p) {
             if (p < 0.0001) {
-                const [, zeros, digits] = p.toFixed(10).match(/^0\.(0*)([1-9]\d*)/) || [];
-                return zeros ? `$0.0₍${zeros.length}₎${digits.slice(0,4)}` : `$${p.toFixed(6)}`;
+                const match = p.toFixed(10).match(/^0\.(0*)([1-9]\d*)/);
+                if (match) return `$0.0₍${match[1].length}₎${match[2].slice(0,4)}`;
             }
             return `$${p.toFixed(5)}`;
         }
 
+        function formatChange(c) {
+            return (c >= 0 ? '+' : '') + c.toFixed(1) + '%';
+        }
+
         function formatMcap(m) {
-            return m >= 1e6 ? `$${(m/1e6).toFixed(1)}M` : m >= 1e3 ? `$${(m/1e3).toFixed(0)}K` : `$${m}`;
+            if (m >= 1e6) return `$${(m/1e6).toFixed(1)}M`;
+            if (m >= 1e3) return `$${(m/1e3).toFixed(0)}K`;
+            return `$${m.toFixed(0)}`;
         }
 
         function copyAddress() {
             navigator.clipboard.writeText('2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS');
-            document.querySelector('.contract-address').style.borderColor = 'var(--accent)';
-            setTimeout(() => document.querySelector('.contract-address').style.borderColor = '', 1000);
+            const el = document.querySelector('.contract-address');
+            el.style.borderColor = 'var(--accent)';
+            setTimeout(() => el.style.borderColor = '', 1000);
         }
 
         fetchPrice();
