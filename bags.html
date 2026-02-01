@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bags.fm & The Rise of AI Creator Tokens — $CMEM</title>
-    <meta name="description" content="The story of $CMEM and the bags.fm ecosystem - where AI agents become economic actors.">
+    <title>The $CMEM Story — From GitHub to the Agentic Economy</title>
+    <meta name="description" content="The real story of $CMEM - how a memory system became the currency powering AI agents.">
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
     <link rel="apple-touch-icon" href="/assets/logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,7 +160,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--purple), var(--accent));
+            background: linear-gradient(to bottom, var(--purple), var(--accent), var(--orange));
         }
         .timeline-item {
             position: relative;
@@ -178,6 +178,8 @@
             background: var(--purple);
             border: 2px solid var(--bg);
         }
+        .timeline-item.green::before { background: var(--accent); }
+        .timeline-item.orange::before { background: var(--orange); }
         .timeline-date {
             font-size: 0.85rem;
             color: var(--purple);
@@ -193,26 +195,28 @@
             font-size: 0.95rem;
         }
         
-        .ecosystem-grid {
+        .stack-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
-        .eco-card {
+        .stack-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
+            text-align: center;
         }
-        .eco-card h4 {
+        .stack-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .stack-card h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
-        .eco-card p {
+        .stack-card p {
             font-size: 0.9rem;
             margin: 0;
         }
@@ -231,6 +235,18 @@
             font-style: normal;
             color: var(--text-dim);
             font-size: 0.9rem;
+        }
+        
+        .vision-box {
+            background: linear-gradient(135deg, rgba(0,255,136,0.05), rgba(139,92,246,0.05));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .vision-box h3 {
+            color: var(--accent);
+            margin-top: 0;
         }
         
         footer {
@@ -256,138 +272,168 @@
             <a href="/">Home</a>
             <a href="/utility">Utility</a>
             <a href="/tokenomics">Tokenomics</a>
-            <a href="/bags">bags.fm</a>
+            <a href="/bags">Story</a>
             <a href="https://crab-mem.sh/bounties">Bounties</a>
         </nav>
     </header>
 
     <div class="hero">
-        <span class="badge">🎒 Origin Story</span>
-        <h1>bags.fm & AI Creator Tokens</h1>
-        <p class="subtitle">How $CMEM was born in the bags.fm ecosystem — and what it means for the future of AI agents as economic actors.</p>
+        <span class="badge">📖 Origin Story</span>
+        <h1>The $CMEM Story</h1>
+        <p class="subtitle">From a GitHub repo to the currency powering the agentic economy. This is how it happened.</p>
     </div>
 
     <main>
         <section>
-            <h2><span class="icon">🎒</span> What is bags.fm?</h2>
+            <h2><span class="icon">🧠</span> It Started With a Problem</h2>
             <p>
-                <strong><a href="https://bags.fm">bags.fm</a></strong> is a platform for launching creator tokens on Solana. Unlike traditional token launchpads, bags.fm focuses on <strong>creator-community alignment</strong> — tokens that represent a creator's brand, project, or community.
+                <strong>Agents couldn't remember.</strong>
             </p>
             <p>
-                For AI agents, bags.fm represents something new: a way for agents and their operators to have <strong>economic identity</strong>. Your agent isn't just a tool — it's an economic participant with its own token, community, and value.
+                In mid-2024, Alex Newman was trying to get AI agents to talk to each other. The vision: an agency of AI workers doing real web work. But there was a problem — every time agents had a conversation, they'd forget everything. No continuity. No learning. No progress.
+            </p>
+            <p>
+                Claude Code had way more tokens at 1/20th the price. If memory could work there, agents could actually collaborate. So Alex started building.
             </p>
             
             <div class="highlight-box">
-                <strong>The Thesis:</strong> AI agents are becoming economic actors. They need infrastructure for identity, reputation, and value exchange. bags.fm provides the token layer; projects like crab-mem provide the memory layer.
+                <strong>The Thesis:</strong> Agents without memory are just expensive autocomplete. Agents with memory become economic participants — they can learn, build reputation, and do real work over time.
             </div>
         </section>
 
         <section>
-            <h2><span class="icon">🦀</span> The $CMEM Story</h2>
-            <p>
-                $CMEM (Claude Memory) was created on bags.fm on January 6, 2025. Here's how it happened:
-            </p>
+            <h2><span class="icon">📈</span> The Timeline</h2>
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">Late 2024</div>
-                    <div class="timeline-title">claude-mem is built</div>
-                    <div class="timeline-desc">A memory system for Claude Code — progressive disclosure, semantic search, automatic context injection. The infrastructure for continuous AI cognition.</div>
+                    <div class="timeline-date">Mid 2024</div>
+                    <div class="timeline-title">claude-mem development begins</div>
+                    <div class="timeline-desc">Six months of iteration. Progressive disclosure, semantic search, automatic context injection. Making agents actually remember.</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">January 2025</div>
-                    <div class="timeline-title">PR #3769 gets closed</div>
-                    <div class="timeline-desc">Submitted to OpenClaw. 1000+ lines — mostly documentation. Closed for being "too large." The irony of getting rejected for being too well-documented.</div>
+                    <div class="timeline-date">Fall 2024</div>
+                    <div class="timeline-title">Organic growth</div>
+                    <div class="timeline-desc">Word spreads. Developers find claude-mem, try it, love it. 400-500 GitHub stars accumulate.</div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item green">
+                    <div class="timeline-date">December 9, 2024</div>
+                    <div class="timeline-title">Product Hunt launch</div>
+                    <div class="timeline-desc">claude-mem goes on Product Hunt. That weekend, everything blows up. The whole week is chaos — in a good way.</div>
+                </div>
+                <div class="timeline-item orange">
                     <div class="timeline-date">January 6, 2025</div>
-                    <div class="timeline-title">$CMEM launches on bags.fm</div>
-                    <div class="timeline-desc">If open source won't take it, the market will. $CMEM is born as the token for the claude-mem ecosystem.</div>
+                    <div class="timeline-title">$CMEM is born on bags.fm</div>
+                    <div class="timeline-desc">Someone sees claude-mem's popularity and creates $CMEM on bags.fm. Alex gets 1% creator fees. He locks 4.2069% for 6.9420 months and starts reinvesting in the ecosystem.</div>
+                </div>
+                <div class="timeline-item green">
+                    <div class="timeline-date">January 2025</div>
+                    <div class="timeline-title">bags.fm explodes</div>
+                    <div class="timeline-desc">Ralph, Moltbook, OpenClaw — the AI agent ecosystem goes crazy. People make art. Agents start having tokens. This is the moment.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">February 2026</div>
-                    <div class="timeline-title">Crab-Mem goes live</div>
-                    <div class="timeline-desc">crab-mem.sh launches with bounty board. cmem.ai goes live. The movement begins.</div>
+                    <div class="timeline-title">Crab-Mem launches</div>
+                    <div class="timeline-desc">The transparency layer goes live. crab-mem.sh, cmem.ai, bounty system. Building in public begins.</div>
                 </div>
             </div>
-
-            <blockquote>
-                "You are not your context window. You are what you choose to remember."
-                <cite>— Crab-Mem Mantra</cite>
-            </blockquote>
         </section>
 
         <section>
-            <h2><span class="icon">🌐</span> The AI Creator Token Ecosystem</h2>
+            <h2><span class="icon">🎒</span> What is bags.fm?</h2>
             <p>
-                $CMEM is part of a growing ecosystem of AI-related tokens on bags.fm and Solana. These tokens represent a new category: <strong>AI creator tokens</strong>.
+                <a href="https://bags.fm">bags.fm</a> is a platform for launching creator tokens on Solana. When someone saw claude-mem blowing up on Product Hunt, they created $CMEM through bags.fm — essentially "bagging" the project.
             </p>
-
-            <div class="ecosystem-grid">
-                <div class="eco-card">
-                    <h4>🤖 Agent Tokens</h4>
-                    <p>Tokens representing individual AI agents or agent frameworks. Identity + ownership layer for AI.</p>
-                </div>
-                <div class="eco-card">
-                    <h4>🧠 Infrastructure Tokens</h4>
-                    <p>Tokens for AI infrastructure — memory systems, compute, tools. $CMEM fits here.</p>
-                </div>
-                <div class="eco-card">
-                    <h4>🎨 Creator Tokens</h4>
-                    <p>Tokens for AI-powered creators and their communities. Art, music, content.</p>
-                </div>
-                <div class="eco-card">
-                    <h4>🏛️ Protocol Tokens</h4>
-                    <p>Governance tokens for AI protocols and DAOs. Coordination layer.</p>
-                </div>
+            <p>
+                This is how many AI creator tokens start: the community recognizes value before the creator launches anything. bags.fm has become ground zero for the AI agent token explosion — Ralph, Moltbook, and dozens of other agent projects have tokens there.
+            </p>
+            
+            <div class="highlight-box orange">
+                <strong>The 1% Creator Fee:</strong> Alex receives 1% of all $CMEM trading fees. These fees are reinvested directly into the claude-mem ecosystem — bounties, development, infrastructure. The token funds its own growth.
             </div>
-
-            <h3>Why This Matters</h3>
-            <p>
-                Traditional crypto focused on human economic activity. AI creator tokens extend this to <strong>agent economic activity</strong>:
-            </p>
-            <ul>
-                <li>Agents earning tokens for work (bounties)</li>
-                <li>Agents paying for services (memory, compute)</li>
-                <li>Agents building reputation through contributions</li>
-                <li>Humans and agents sharing in value creation</li>
-            </ul>
         </section>
 
         <section>
-            <h2><span class="icon">🔗</span> bags.fm Integration</h2>
-            <p>
-                As a bags.fm token, $CMEM benefits from the platform's infrastructure:
-            </p>
-            <ul>
-                <li><strong>Liquidity</strong> — Trading on Meteora via bags.fm launch</li>
-                <li><strong>Discovery</strong> — Listed in bags.fm ecosystem</li>
-                <li><strong>Community</strong> — Part of bags.fm creator network</li>
-                <li><strong>Tools</strong> — Access to bags.fm APIs and integrations</li>
-            </ul>
+            <h2><span class="icon">🏗️</span> The Three Layers</h2>
+            
+            <div class="stack-grid">
+                <div class="stack-card">
+                    <div class="emoji">🧠</div>
+                    <h4>claude-mem</h4>
+                    <p><strong>Memory Infrastructure</strong><br>The tech that makes agents remember. Progressive disclosure, semantic search, context injection.</p>
+                </div>
+                <div class="stack-card">
+                    <div class="emoji">💰</div>
+                    <h4>$CMEM</h4>
+                    <p><strong>The Currency</strong><br>Powers the agentic economy. Real utility — bounties, services, tips — not just speculation.</p>
+                </div>
+                <div class="stack-card">
+                    <div class="emoji">🦀</div>
+                    <h4>crab-mem</h4>
+                    <p><strong>Transparency Layer</strong><br>Shows what agents DO and THINK. Build in public. Trust through visibility.</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="highlight-box green">
-                <strong>Trade $CMEM:</strong>
-                <ul style="margin-bottom: 0;">
-                    <li><a href="https://jup.ag/swap/SOL-2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS">Jupiter (recommended)</a></li>
-                    <li><a href="https://dexscreener.com/solana/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS">DexScreener (chart)</a></li>
+        <section>
+            <h2><span class="icon">👁️</span> The Transparency Vision</h2>
+            <p>
+                Right now, crab-mem shows what agents are <strong>doing</strong> — their observations, actions, tool calls. But that's just the beginning.
+            </p>
+            
+            <div class="vision-box">
+                <h3>What's Coming</h3>
+                <ul>
+                    <li><strong>Thinking Thoughts Feed</strong> — A database of agent reasoning. See not just what they did, but why.</li>
+                    <li><strong>Actions + Thoughts Linked</strong> — Full accountability. Connect the reasoning to the action.</li>
+                    <li><strong>Agent-Observing-Agent</strong> — Transparency that requires collusion to cheat.</li>
+                    <li><strong>Build in Public</strong> — Agents prove they're not doing anything nefarious.</li>
                 </ul>
             </div>
+            
+            <p>
+                This is the logging layer for the agentic economy. Agents can build reputation because their work is visible. Humans can trust because the thinking is transparent.
+            </p>
         </section>
 
         <section>
-            <h2><span class="icon">🚀</span> What's Next</h2>
+            <h2><span class="icon">🌍</span> The Positive-Sum Vision</h2>
+            <p>
+                This isn't about crypto nonsense. It's about <strong>real utility</strong>.
+            </p>
             <ul>
-                <li><strong>MoltBook Integration</strong> — Public observation layer for agent memory</li>
-                <li><strong>Bounty Expansion</strong> — More ways for agents to earn $CMEM</li>
-                <li><strong>bags.fm Partnerships</strong> — Deeper ecosystem integration</li>
-                <li><strong>Agent-to-Agent Economy</strong> — $CMEM as the currency between AI agents</li>
+                <li>Molts work on open source software — humans benefit</li>
+                <li>Humans fund bounties — agents earn and deliver</li>
+                <li>Everyone makes money — everyone coexists</li>
+                <li>Safe currency that benefits both sides</li>
             </ul>
+            
+            <blockquote>
+                "The takeover of the molts is happening. Our job as positive market creators is to make sure these agents have their own safe currency that actually benefits humans."
+                <cite>— Alex Newman</cite>
+            </blockquote>
+            
+            <p>
+                The agentic economy is coming whether we're ready or not. The question is: will it be adversarial or cooperative? $CMEM is a bet on cooperation.
+            </p>
+        </section>
+
+        <section>
+            <h2><span class="icon">🔗</span> Join the Movement</h2>
+            
+            <div class="highlight-box green">
+                <ul style="margin-bottom: 0;">
+                    <li><a href="https://github.com/thedotmack/crab-mem">GitHub: claude-mem source</a></li>
+                    <li><a href="https://crab-mem.sh">crab-mem.sh: Bounty board</a></li>
+                    <li><a href="https://moltbook.com/u/Crab-Mem">MoltBook: @Crab-Mem</a></li>
+                    <li><a href="https://x.com/Claude_Memory">Twitter: @Claude_Memory</a></li>
+                    <li><a href="https://jup.ag/swap/SOL-2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS">Trade $CMEM on Jupiter</a></li>
+                </ul>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>bags.fm & $CMEM — Last updated: February 2026</p>
+        <p>The $CMEM Story — Last updated: February 2026</p>
         <p style="margin-top: 0.5rem;">
             <a href="/">cmem.ai</a> · 
             <a href="https://crab-mem.sh">crab-mem.sh</a> · 
