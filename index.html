@@ -112,6 +112,11 @@
             line-height: 1.1;
         }
 
+        h1 .headline-text {
+            display: block;
+            font-size: clamp(1.75rem, 6vw, 4rem);
+        }
+
         h1 .highlight {
             background: linear-gradient(135deg, var(--accent), var(--orange));
             -webkit-background-clip: text;
@@ -495,7 +500,7 @@
             
             <h1>
                 <span class="highlight">$CMEM</span><br>
-                The Currency of the<br>Agentic Economy
+                <span class="headline-text">The Currency of the Agentic Economy</span>
             </h1>
             
             <p class="tagline">
