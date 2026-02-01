@@ -607,16 +607,32 @@
     </footer>
 
     <script>
-        // Fetch live price
+        // Fetch live price from server-side cached API (60s cache)
         async function fetchPrice() {
             try {
-                const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS');
-                const data = await res.json();
-                if (data.pairs?.[0]) {
-                    const pair = data.pairs[0];
-                    const price = parseFloat(pair.priceUsd);
-                    const change = pair.priceChange?.h24 || 0;
-                    const mcap = pair.fdv || 0;
+                // Use our server-side API (cached 60s) with client fallback
+                let data;
+                try {
+                    const res = await fetch('/api/price');
+                    data = await res.json();
+                } catch (e) {
+                    // Fallback to direct DexScreener if API fails
+                    const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/2TsmuYUrsctE57VLckZBYEEzdokUF8j8e1GavekWBAGS');
+                    const dex = await res.json();
+                    const pair = dex.pairs?.[0];
+                    if (pair) {
+                        data = {
+                            price: pair.priceUsd,
+                            priceChange24h: pair.priceChange?.h24 || 0,
+                            marketCap: pair.fdv || 0
+                        };
+                    }
+                }
+
+                if (data && data.price) {
+                    const price = parseFloat(data.price);
+                    const change = parseFloat(data.priceChange24h) || 0;
+                    const mcap = parseFloat(data.marketCap) || 0;
 
                     document.getElementById('price').textContent = formatPrice(price);
                     document.getElementById('change').textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
@@ -655,7 +671,7 @@
         }
 
         fetchPrice();
-        setInterval(fetchPrice, 30000);
+        setInterval(fetchPrice, 60000); // Refresh every 60s (matches server cache)
     </script>
 </body>
 </html>
